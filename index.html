@@ -1,789 +1,1879 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-
-<!DOCTYPE html>
-
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
-<meta content="#0a0a0c" name="theme-color"/>
-<meta content="yes" name="apple-mobile-web-app-capable"/>
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>Приложения</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<title>Каталог приложений</title>
+
 <style>
-        :root {
-            --bg: #0a0a0c;
-            --card-bg: #16161a;
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-main: #ffffff;
-            --text-sub: #8e8e93;
-            --text-dim: #636366;
-            --accent-blue: #0a84ff;
-            --badge-bg: #2c2c2e;
-            --badge-text: #a1a1a6;
-            --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-        }
+:root {
+    --bg: #0a0a0c;
+    --card-bg: #16161a;
+    --card-border: rgba(255,255,255,.08);
+    --text-main: #ffffff;
+    --text-sub: #8e8e93;
+    --text-dim: #636366;
+    --accent-blue: #0a84ff;
+    --badge-bg: #2c2c2e;
+    --badge-text: #a1a1a6;
+    --font: -apple-system, BlinkMacSystemFont,
+            "SF Pro Display", "SF Pro Text",
+            "Segoe UI", Roboto, sans-serif;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: var(--font-family);
-            min-height: 100dvh;
-            padding: max(20px, env(safe-area-inset-top)) 16px calc(80px + env(safe-area-inset-bottom));
-            -webkit-font-smoothing: antialiased;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .header {
-            max-width: 500px;
-            margin: 0 auto 16px;
-        }
+body {
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: var(--font);
+    min-height: 100dvh;
+    padding:
+        max(20px, env(safe-area-inset-top))
+        16px
+        calc(90px + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+}
 
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-            text-align: center;
-        }
+.header {
+    max-width: 500px;
+    margin: 0 auto 16px;
+}
 
-        .search-wrap {
-            position: relative;
-            width: 100%;
-        }
+.header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    text-align: center;
+}
 
-        .search-input {
-            width: 100%;
-            height: 44px;
-            background: #1c1c1e;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            padding: 0 16px 0 40px;
-            font-size: 15px;
-            color: #fff;
-            outline: none;
-            transition: border-color 0.2s;
-        }
+.search-wrap {
+    position: relative;
+    width: 100%;
+}
 
-        .search-input:focus {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
+.search-input {
+    width: 100%;
+    height: 44px;
+    background: #1c1c1e;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px;
+    padding: 0 16px 0 40px;
+    font-size: 15px;
+    color: #ffffff;
+    outline: none;
+}
 
-        .search-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-dim);
-            font-size: 16px;
-            pointer-events: none;
-        }
+.search-input:focus {
+    border-color: rgba(255,255,255,.2);
+}
 
-        .cards-list {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    pointer-events: none;
+}
 
-        .app-row {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 12px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
+.cards-list {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-        .app-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 0;
-            flex: 1;
-        }
+.app-row {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
 
-        .icon-stack {
-            position: relative;
-            width: 56px;
-            height: 56px;
-            flex-shrink: 0;
-        }
+.app-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    flex: 1;
+}
 
-        .icon-main {
-            width: 56px;
-            height: 56px;
-            border-radius: 13px;
-            background: #2c2c2e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            font-weight: 700;
-            color: #aeaeb2;
-            overflow: hidden;
-        }
+.icon-stack {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+}
 
-        .icon-main img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.icon-main {
+    width: 56px;
+    height: 56px;
+    border-radius: 13px;
+    background: #2c2c2e;
 
-        .icon-badge {
-            position: absolute;
-            bottom: -3px;
-            right: -3px;
-            width: 25px;
-            height: 25px;
-            border-radius: 7px;
-            background: #3a3a3c;
-            border: 2px solid var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: 700;
-            color: #fff;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .icon-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    font-size: 20px;
+    font-weight: 700;
+    color: #aeaeb2;
 
-        .app-meta {
-            flex: 1;
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
+    overflow: hidden;
+}
 
-        .app-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #fff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+.icon-main img,
+.icon-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .app-mask-title {
-            font-size: 13px;
-            color: var(--text-sub);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+.icon-badge {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
 
-        .badge {
-            align-self: flex-start;
-            background: var(--badge-bg);
-            color: var(--badge-text);
-            font-size: 11px;
-            font-weight: 500;
-            padding: 2px 7px;
-            border-radius: 6px;
-            margin-top: 2px;
-        }
+    width: 25px;
+    height: 25px;
 
-        .btn-download {
-            background: var(--accent-blue);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 700;
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 18px;
-            flex-shrink: 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: filter 0.15s, transform 0.1s;
-        }
+    border-radius: 7px;
+    background: #3a3a3c;
 
-        .btn-download:active {
-            transform: scale(0.95);
-            filter: brightness(0.9);
-        }
+    border: 2px solid var(--card-bg);
 
-        .tabbar-wrap {
-            position: fixed;
-            bottom: max(14px, env(safe-area-inset-bottom));
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            z-index: 999;
-            pointer-events: none;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .tabbar {
-            pointer-events: auto;
-            background: rgba(30, 30, 35, 0.82);
-            backdrop-filter: blur(25px) saturate(190%);
-            -webkit-backdrop-filter: blur(25px) saturate(190%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 30px;
-            padding: 5px 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
-        }
+    font-size: 9px;
+    font-weight: 700;
+    color: #ffffff;
 
-        .tab-btn {
-            background: transparent;
-            border: none;
-            color: #8e8e93;
-            width: 44px;
-            height: 38px;
-            border-radius: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
+    overflow: hidden;
 
-        .tab-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
 
-        .tab-btn.active {
-            background: rgba(255, 255, 255, 0.16);
-            color: #ffffff;
-        }
+.app-meta {
+    flex: 1;
+    min-width: 0;
 
-        .hidden {
-            display: none !important;
-        }
-    </style>
-<meta content="yes" name="apple-mobile-web-app-capable"/></head>
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.app-title {
+    font-size: 15px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-mask-title {
+    font-size: 13px;
+    color: var(--text-sub);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.badge {
+    align-self: flex-start;
+
+    background: var(--badge-bg);
+    color: var(--badge-text);
+
+    font-size: 11px;
+    font-weight: 500;
+
+    padding: 2px 7px;
+    border-radius: 6px;
+
+    margin-top: 2px;
+}
+
+.share-link {
+    align-self: flex-start;
+
+    margin-top: 4px;
+
+    color: #6eaefc;
+    font-size: 11px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.share-link:active {
+    opacity: .65;
+}
+
+.btn-download {
+    background: var(--accent-blue);
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    padding: 8px 14px;
+    border-radius: 18px;
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-download:active {
+    transform: scale(.95);
+    filter: brightness(.9);
+}
+
+/* =========================
+   НИЖНЕЕ МЕНЮ
+   ========================= */
+
+.tabbar-wrap {
+    position: fixed;
+
+    bottom: max(14px, env(safe-area-inset-bottom));
+
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+
+    z-index: 999;
+
+    pointer-events: none;
+}
+
+.tabbar {
+    pointer-events: auto;
+
+    background: rgba(30,30,35,.82);
+
+    backdrop-filter: blur(25px) saturate(190%);
+    -webkit-backdrop-filter: blur(25px) saturate(190%);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 30px;
+
+    padding: 5px 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    box-shadow: 0 14px 35px rgba(0,0,0,.55);
+}
+
+.tab-btn {
+    background: transparent;
+
+    border: none;
+
+    color: #8e8e93;
+
+    min-width: 44px;
+    height: 38px;
+
+    padding: 0 12px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background: rgba(255,255,255,.16);
+    color: #ffffff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   РЕЖИМ ПРЯМОЙ ССЫЛКИ
+   ?app=potok
+   ========================= */
+
+.direct-mode .search-wrap,
+.direct-mode .tabbar-wrap {
+    display: none;
+}
+
+.direct-mode .header {
+    margin-bottom: 18px;
+}
+
+.direct-mode .header h1 {
+    font-size: 22px;
+}
+
+.direct-mode .app-row {
+    display: none !important;
+}
+
+.direct-mode .app-row.direct-app {
+    display: flex !important;
+
+    border-color: rgba(10,132,255,.75);
+
+    box-shadow:
+        0 0 0 2px rgba(10,132,255,.16);
+}
+
+.direct-actions {
+    display: none;
+
+    max-width: 500px;
+
+    margin: 12px auto 0;
+
+    gap: 8px;
+}
+
+.direct-mode .direct-actions {
+    display: flex;
+}
+
+.secondary-btn {
+    flex: 1;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #1c1c1e;
+
+    color: #ffffff;
+
+    font: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.not-found {
+    display: none;
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: var(--card-bg);
+
+    color: var(--text-sub);
+
+    text-align: center;
+}
+
+body.app-not-found .not-found {
+    display: block;
+}
+
+@media (max-width: 390px) {
+
+    .app-row {
+        padding: 11px 12px;
+    }
+
+    .btn-download {
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .tab-btn {
+        padding: 0 9px;
+        font-size: 11px;
+    }
+}
+</style>
+
+</head>
+
 <body>
+
 <div class="header">
-<h1>Каталог</h1>
-<div class="search-wrap">
-<span class="search-icon">🔍</span>
-<input class="search-input" id="searchInput" onkeyup="filterApps()" placeholder="Поиск приложения..." type="text"/>
-</div>
-</div>
-<div class="cards-list" id="appsContainer">
-<!-- ================= БАНКИ (36 шт.) ================= -->
-<div class="app-row" data-category="bank" data-search="holder альфа банк alfa">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='А'" src="icons_masked/alphabank-holder.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='HO'}; this.src='icons_masked/alphabank-holder.png';" src="icons_masked/alphabank-holder.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">Альфа-Банк</div>
-<div class="app-mask-title">Holder</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/alphabank-holder.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="bank" data-search="online finance сбер сбербанк sber">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='С'" src="icons_masked/sber-finance.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='OF'}; this.src='icons_masked/sber-finance.png';" src="icons_masked/sber-finance.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">СберБанк</div>
-<div class="app-mask-title">Online Finance</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/sber-finance.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="bank" data-search="поток potok сбер бизнес sber business">
-<div class="app-left">
-<div class="icon-stack">
 
-<div class="icon-main">
-<img alt="СберБизнес"
-     onerror="this.parentElement.textContent='СБ'"
-     src="icon_original/sberbusiness.webp"/>
-</div>
+    <h1 id="pageTitle">Каталог</h1>
 
-<div class="icon-badge">
-<img alt="Поток"
-     onerror="this.parentElement.textContent='П'"
-     src="icons_masked/potok.webp"/>
-</div>
+    <div class="search-wrap">
+
+        <span class="search-icon">🔍</span>
+
+        <input
+            class="search-input"
+            id="searchInput"
+            placeholder="Поиск приложения..."
+            type="text"
+        >
+
+    </div>
 
 </div>
 
-<div class="app-meta">
-<div class="app-title">СберБизнес</div>
-<div class="app-mask-title">Поток</div>
-<div class="badge">Банки</div>
-</div>
+
+<div
+    class="cards-list"
+    id="appsContainer">
 </div>
 
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/potok.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
 
-</div>
-<div class="app-row" data-category="bank" data-search="craftersy т-банк тинькофф tinkoff">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='Т'" src="icons_masked/tbank-Toast.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='C'}; this.src='icons_masked/tbank-Toast.png';" src="icons_masked/tbank-Toast.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">Т-Банк</div>
-<div class="app-mask-title">Craftersy</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/tbank.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="bank" data-search="сириус втб vtb">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='В'" src="icons_masked/vtb-sirius.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='С'}; this.src='icons_masked/vtb-sirius.png';" src="icons_masked/vtb-sirius.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">ВТБ</div>
-<div class="app-mask-title">Сириус</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/vtb-sirius.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="bank" data-search="юmoney yoomoney яндекс деньги">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='Ю'" src="icons_masked/YooMoney.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='Ю'}; this.src='icons_masked/YooMoney.png';" src="icons_masked/YooMoney.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">ЮMoney</div>
-<div class="app-mask-title">ЮMoney</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/YooMoney.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="bank" data-search="yapay яндекс пэй yandex">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='Я'" src="icons_masked/yapay.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='Я'}; this.src='icons_masked/yapay.png';" src="icons_masked/yapay.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">Яндекс Пэй</div>
-<div class="app-mask-title">Яндекс Пэй</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/yapay.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="bank" data-search="блум рокетбанк rocket">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main">
-<img src="icon_original/rocketbank.webp"
-     onerror="this.parentElement.textContent='Р'"
-     alt="Icon">
-</div>
-<div class="icon-badge">
-<img src="icons_masked/blum.webp"
-     onerror="this.parentElement.textContent='Б'"
-     alt="Badge">
-</div>
-</div>
-<div class="app-meta">
-<div class="app-title">Рокетбанк</div>
-<div class="app-mask-title">Блум</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/blum.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
-</div>
-        <div class="app-row" data-category="bank" data-search="scb notes совкомбанк sovcombank">
-<div class="app-left">
-<div class="icon-stack">
+<div
+    class="not-found"
+    id="notFound">
 
-<div class="icon-main">
-<img alt="Совкомбанк"
-     onerror="this.parentElement.textContent='С'"
-     src="icon_original/sovkombank.webp"/>
-</div>
-
-<div class="icon-badge">
-<img alt="SCB Notes"
-     onerror="this.parentElement.textContent='SCB'"
-     src="icons_masked/scb.webp"/>
-</div>
+    Приложение по этой ссылке не найдено.
 
 </div>
 
-<div class="app-meta">
-<div class="app-title">Совкомбанк</div>
-<div class="app-mask-title">SCB Notes</div>
-<div class="badge">Банки</div>
-</div>
-</div>
 
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/scb-notes.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
+<div class="direct-actions">
 
-</div>
-<div class="app-row" data-category="bank" data-search="breathio точка банк tochka дыхание">
-<div class="app-left">
-<div class="icon-stack">
+    <button
+        class="secondary-btn"
+        id="showAllBtn">
 
-<div class="icon-main">
-<img alt="Точка Банк"
-     onerror="this.parentElement.textContent='Т'"
-     src="icon_original/tochka.webp"/>
-</div>
+        ← Весь каталог
 
-<div class="icon-badge">
-<img alt="Breathio"
-     onerror="this.parentElement.textContent='B'"
-     src="icons_masked/Breathio.webp"/>
-</div>
+    </button>
+
+    <button
+        class="secondary-btn"
+        id="shareCurrentBtn">
+
+        🔗 Поделиться
+
+    </button>
 
 </div>
 
-<div class="app-meta">
-<div class="app-title">Точка Банк</div>
-<div class="app-mask-title">Breathio</div>
-<div class="badge">Банки</div>
-</div>
-</div>
 
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/Breathio.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
-
-</div>
-<div class="app-row" data-category="other" data-search="fest ягодный фест ягоды berries volfest">
-<div class="app-left">
-<div class="icon-stack">
-
-<div class="icon-main">
-<img alt="Ягодный Фест"
-     onerror="this.parentElement.textContent='ЯФ'"
-     src="icon_original/fest.webp"/>
-</div>
-
-<div class="icon-badge">
-<img alt="Fest"
-     onerror="this.parentElement.textContent='Ф'"
-     src="icons_masked/fest.webp"/>
-</div>
-
-</div>
-
-<div class="app-meta">
-<div class="app-title">Ягодный Фест</div>
-<div class="app-mask-title">Fest</div>
-<div class="badge">Прочее</div>
-</div>
-</div>
-
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/fest.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
-
-</div>
-<div class="app-row" data-category="bank" data-search="металлинвестбанк metallinvestbank авк гид abk">
-<div class="app-left">
-<div class="icon-stack">
-
-<div class="icon-main">
-<img alt="Металлинвестбанк"
-     onerror="this.parentElement.textContent='М'"
-     src="icon_original/metallinvestbank.webp"/>
-</div>
-
-<div class="icon-badge">
-<img alt="АВК Гид"
-     onerror="this.parentElement.textContent='АВК'"
-     src="icons_masked/abk.webp"/>
-</div>
-
-</div>
-
-<div class="app-meta">
-<div class="app-title">Металлинвестбанк</div>
-<div class="app-mask-title">АВК Гид</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/abk.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
-
-</div>
-<!-- ================= МАГАЗИНЫ (5 шт.) ================= -->
-<div class="app-row" data-category="bank" data-search="газпромбанк газпром gazprombank gazprom до вершины do vershiny">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Газпромбанк" onerror="this.parentElement.textContent='Г'" src="icon_original/gazprombank.webp"/></div>
-<div class="icon-badge"><img alt="До вершины" onerror="this.parentElement.textContent='ДВ'" src="icons_masked/do-vershiny.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">Газпромбанк</div>
-<div class="app-mask-title">До вершины</div>
-<div class="badge">Банки</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/gazprombank.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="shop" data-search="авито anero онлайн помощник объявления avito">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='А'" src="icons_masked/Anero.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='AN'}; this.src='icons_masked/Anero.png';" src="icons_masked/Anero.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">Авито</div>
-<div class="app-mask-title">Anero</div>
-<div class="badge">Магазины</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/Anero.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<!-- ================= СОЦСЕТИ (10 шт.) ================= -->
-<div class="app-row" data-category="social" data-search="max макс соцсеть">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='M'" src="icons_masked/max.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='M'}; this.src='icons_masked/max.png';" src="icons_masked/max.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">МАКС</div>
-<div class="app-mask-title">MAX</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/max.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="social" data-search="slicingdices rutube рутуб видео">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='R'" src="icons_masked/rutube-starship.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='SD'}; this.src='icons_masked/rutube-SlicingDices.png';" src="icons_masked/rutube-SlicingDices.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">Rutube</div>
-<div class="app-mask-title">SlicingDices</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/rutube-starship.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="social" data-search="vk вк вконтакте">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='V'" src="icons_masked/VK.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='V'}; this.src='icons_masked/VK.png';" src="icons_masked/VK.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">ВКонтакте</div>
-<div class="app-mask-title">VK</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/VK.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="social" data-search="vk messenger вк мессенджер">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='V'" src="icons_masked/VKMessenger.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='VM'}; this.src='icons_masked/VKMessenger.png';" src="icons_masked/VKMessenger.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">VK Мессенджер</div>
-<div class="app-mask-title">VK Messenger</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/VKMessenger.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="social" data-search="vk music вк музыка">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='V'" src="icons_masked/VKMusic.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='VM'}; this.src='icons_masked/VKMusic.png';" src="icons_masked/VKMusic.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">VK Музыка</div>
-<div class="app-mask-title">VK Music</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/VKMusic.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="social" data-search="vk video вк видео">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='VV'" src="icons_masked/VKVideo.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='VV'}; this.src='icons_masked/VKVideo.png';" src="icons_masked/VKVideo.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">VK Видео</div>
-<div class="app-mask-title">VK Video</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/VKVideo.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<!-- ================= ПРОЧЕЕ (7 шт.) ================= -->
-       <div class="app-row" data-category="social" data-search="mail почта mail.ru email мэйл">
-<div class="app-left">
-<div class="icon-stack">
-
-<div class="icon-main">
-<img alt="Mail.ru"
-     onerror="this.parentElement.textContent='M'"
-     src="icon_original/mail.webp"/>
-</div>
-
-<div class="icon-badge">
-<img alt="Mail"
-     onerror="this.parentElement.textContent='M'"
-     src="icons_masked/mail.webp"/>
-</div>
-
-</div>
-
-<div class="app-meta">
-<div class="app-title">Почта Mail.ru</div>
-<div class="app-mask-title">Mail</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-
-<a class="btn-download"
-   href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/Mail.plist"
-   rel="noopener"
-   target="_self">⬇ Установить</a>
-
-</div>
-        <div class="app-row" data-category="social" data-search="vk mail вк почта мэйл mail.ru email">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Icon" onerror="this.parentElement.textContent='M'" src="icons_masked/vk-mail.webp"/></div>
-<div class="icon-badge"><img alt="Badge" onerror="this.onerror=function(){this.parentElement.textContent='VM'}; this.src='icons_masked/vk-mail.png';" src="icons_masked/vk-mail.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">VK Mail</div>
-<div class="app-mask-title">VK Mail</div>
-<div class="badge">Соцсети</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/vk-mail.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-<div class="app-row" data-category="other" data-search="pikabu пикабу юмор новости">
-<div class="app-left">
-<div class="icon-stack">
-<div class="icon-main"><img alt="Пикабу" onerror="this.parentElement.textContent='П'" src="icon_original/pikabu.webp"/></div>
-<div class="icon-badge"><img alt="Pikabu" onerror="this.onerror=function(){this.parentElement.textContent='П'}; this.src='icons_masked/pikabu.png';" src="icons_masked/pikabu.webp"/></div>
-</div>
-<div class="app-meta">
-<div class="app-title">Пикабу</div>
-<div class="app-mask-title">Pikabu</div>
-<div class="badge">Прочее</div>
-</div>
-</div>
-<a class="btn-download" href="itms-services://?action=download-manifest&amp;url=https://neymean.github.io/ipa_download/plist/Pikabu.plist" rel="noopener" target="_self">⬇ Установить</a>
-</div>
-</div>
-<!-- Компактная плавающая нижняя панель (только иконки) -->
 <div class="tabbar-wrap">
-<div class="tabbar">
-<!-- Все -->
-<button class="tab-btn active" data-filter="all" title="Все">
-<svg viewbox="0 0 24 24"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"></path></svg>
-</button>
-<!-- Банки -->
-<button class="tab-btn" data-filter="bank" title="Банки">
-<svg viewbox="0 0 24 24"><path d="M11.5 1L2 6v2h19V6m-17 4v7h3v-7m4 0v7h3v-7m4 0v7h3v-7M2 19v3h19v-3z"></path></svg>
-</button>
-<!-- Магазины -->
-<button class="tab-btn" data-filter="shop" title="Магазины">
-<svg viewbox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"></path></svg>
-</button>
-<!-- Соцсети (Люди) -->
-<button class="tab-btn" data-filter="social" title="Соцсети">
-<svg viewbox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
-</button>
-<!-- Прочее -->
-<button class="tab-btn" data-filter="other" title="Прочее">
-<svg viewbox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
-</button>
+
+    <div class="tabbar">
+
+        <button
+            class="tab-btn active"
+            data-filter="all">
+
+            Все
+
+        </button>
+
+        <button
+            class="tab-btn"
+            data-filter="bank">
+
+            Банки
+
+        </button>
+
+        <button
+            class="tab-btn"
+            data-filter="shop">
+
+            Магазины
+
+        </button>
+
+        <button
+            class="tab-btn"
+            data-filter="social">
+
+            Соцсети
+
+        </button>
+
+        <button
+            class="tab-btn"
+            data-filter="other">
+
+            Прочее
+
+        </button>
+
+    </div>
+
 </div>
-</div>
+
+
 <script>
-        let currentFilter = 'all';
 
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                const target = e.currentTarget;
-                target.classList.add('active');
-                currentFilter = target.getAttribute('data-filter');
-                filterApps();
-            });
+const BASE_MANIFEST =
+    "https://neymean.github.io/ipa_download/plist/";
+
+
+/*
+==================================================
+ПРИЛОЖЕНИЯ
+==================================================
+*/
+
+const apps = [
+
+    {
+        slug: "alphabank-holder",
+
+        category: "bank",
+
+        search:
+            "holder альфа банк alfa alphabank",
+
+        title:
+            "Альфа-Банк",
+
+        mask:
+            "Holder",
+
+        mainIcon:
+            "icons_masked/alphabank-holder.webp",
+
+        badgeIcon:
+            "icons_masked/alphabank-holder.webp",
+
+        manifest:
+            "alphabank-holder.plist",
+
+        fallbackMain:
+            "А",
+
+        fallbackBadge:
+            "HO"
+    },
+
+
+    {
+        slug: "sber-finance",
+
+        category: "bank",
+
+        search:
+            "online finance сбер сбербанк sber",
+
+        title:
+            "СберБанк",
+
+        mask:
+            "Online Finance",
+
+        mainIcon:
+            "icons_masked/sber-finance.webp",
+
+        badgeIcon:
+            "icons_masked/sber-finance.webp",
+
+        manifest:
+            "sber-finance.plist",
+
+        fallbackMain:
+            "С",
+
+        fallbackBadge:
+            "OF"
+    },
+
+
+    {
+        slug: "potok",
+
+        category: "bank",
+
+        search:
+            "поток potok сбер бизнес sber business",
+
+        title:
+            "СберБизнес",
+
+        mask:
+            "Поток",
+
+        mainIcon:
+            "icon_original/sberbusiness.webp",
+
+        badgeIcon:
+            "icons_masked/potok.webp",
+
+        manifest:
+            "potok.plist",
+
+        fallbackMain:
+            "СБ",
+
+        fallbackBadge:
+            "П"
+    },
+
+
+    {
+        slug: "tbank",
+
+        category: "bank",
+
+        search:
+            "craftersy т-банк тинькофф tinkoff tbank",
+
+        title:
+            "Т-Банк",
+
+        mask:
+            "Craftersy",
+
+        mainIcon:
+            "icons_masked/tbank-Toast.webp",
+
+        badgeIcon:
+            "icons_masked/tbank-Toast.webp",
+
+        manifest:
+            "tbank.plist",
+
+        fallbackMain:
+            "Т",
+
+        fallbackBadge:
+            "C"
+    },
+
+
+    {
+        slug: "vtb-sirius",
+
+        category: "bank",
+
+        search:
+            "сириус втб vtb",
+
+        title:
+            "ВТБ",
+
+        mask:
+            "Сириус",
+
+        mainIcon:
+            "icons_masked/vtb-sirius.webp",
+
+        badgeIcon:
+            "icons_masked/vtb-sirius.webp",
+
+        manifest:
+            "vtb-sirius.plist",
+
+        fallbackMain:
+            "В",
+
+        fallbackBadge:
+            "С"
+    },
+
+
+    {
+        slug: "yoomoney",
+
+        category: "bank",
+
+        search:
+            "юmoney yoomoney яндекс деньги",
+
+        title:
+            "ЮMoney",
+
+        mask:
+            "ЮMoney",
+
+        mainIcon:
+            "icons_masked/YooMoney.webp",
+
+        badgeIcon:
+            "icons_masked/YooMoney.webp",
+
+        manifest:
+            "YooMoney.plist",
+
+        fallbackMain:
+            "Ю",
+
+        fallbackBadge:
+            "Ю"
+    },
+
+
+    {
+        slug: "yapay",
+
+        category: "bank",
+
+        search:
+            "yapay яндекс пэй yandex",
+
+        title:
+            "Яндекс Пэй",
+
+        mask:
+            "Яндекс Пэй",
+
+        mainIcon:
+            "icons_masked/yapay.webp",
+
+        badgeIcon:
+            "icons_masked/yapay.webp",
+
+        manifest:
+            "yapay.plist",
+
+        fallbackMain:
+            "Я",
+
+        fallbackBadge:
+            "Я"
+    },
+
+
+    {
+        slug: "blum",
+
+        category: "bank",
+
+        search:
+            "блум blum рокетбанк rocket rocketbank",
+
+        title:
+            "Рокетбанк",
+
+        mask:
+            "Блум",
+
+        mainIcon:
+            "icon_original/rocketbank.webp",
+
+        badgeIcon:
+            "icons_masked/blum.webp",
+
+        manifest:
+            "blum.plist",
+
+        fallbackMain:
+            "Р",
+
+        fallbackBadge:
+            "Б"
+    },
+
+
+    {
+        slug: "scb-notes",
+
+        category: "bank",
+
+        search:
+            "scb notes совкомбанк sovcombank",
+
+        title:
+            "Совкомбанк",
+
+        mask:
+            "SCB Notes",
+
+        mainIcon:
+            "icon_original/sovkombank.webp",
+
+        badgeIcon:
+            "icons_masked/scb.webp",
+
+        manifest:
+            "scb-notes.plist",
+
+        fallbackMain:
+            "С",
+
+        fallbackBadge:
+            "SCB"
+    },
+
+
+    {
+        slug: "breathio",
+
+        category: "bank",
+
+        search:
+            "breathio точка банк tochka дыхание",
+
+        title:
+            "Точка Банк",
+
+        mask:
+            "Breathio",
+
+        mainIcon:
+            "icon_original/tochka.webp",
+
+        badgeIcon:
+            "icons_masked/Breathio.webp",
+
+        manifest:
+            "Breathio.plist",
+
+        fallbackMain:
+            "Т",
+
+        fallbackBadge:
+            "B"
+    },
+
+
+    {
+        slug: "abk",
+
+        category: "bank",
+
+        search:
+            "металлинвестбанк metallinvestbank авк гид abk",
+
+        title:
+            "Металлинвестбанк",
+
+        mask:
+            "АВК Гид",
+
+        mainIcon:
+            "icon_original/metallinvestbank.webp",
+
+        badgeIcon:
+            "icons_masked/abk.webp",
+
+        manifest:
+            "abk.plist",
+
+        fallbackMain:
+            "М",
+
+        fallbackBadge:
+            "АВК"
+    },
+
+
+    {
+        slug: "gazprombank",
+
+        category: "bank",
+
+        search:
+            "газпромбанк газпром gazprombank gazprom до вершины",
+
+        title:
+            "Газпромбанк",
+
+        mask:
+            "До вершины",
+
+        mainIcon:
+            "icon_original/gazprombank.webp",
+
+        badgeIcon:
+            "icons_masked/do-vershiny.webp",
+
+        manifest:
+            "gazprombank.plist",
+
+        fallbackMain:
+            "Г",
+
+        fallbackBadge:
+            "ДВ"
+    },
+
+
+    {
+        slug: "anero",
+
+        category: "shop",
+
+        search:
+            "авито anero онлайн помощник объявления avito",
+
+        title:
+            "Авито",
+
+        mask:
+            "Anero",
+
+        mainIcon:
+            "icons_masked/Anero.webp",
+
+        badgeIcon:
+            "icons_masked/Anero.webp",
+
+        manifest:
+            "Anero.plist",
+
+        fallbackMain:
+            "А",
+
+        fallbackBadge:
+            "AN"
+    },
+
+
+    {
+        slug: "max",
+
+        category: "social",
+
+        search:
+            "max макс соцсеть",
+
+        title:
+            "МАКС",
+
+        mask:
+            "MAX",
+
+        mainIcon:
+            "icons_masked/max.webp",
+
+        badgeIcon:
+            "icons_masked/max.webp",
+
+        manifest:
+            "max.plist",
+
+        fallbackMain:
+            "M",
+
+        fallbackBadge:
+            "M"
+    },
+
+
+    {
+        slug: "rutube-starship",
+
+        category: "social",
+
+        search:
+            "slicingdices rutube рутуб видео",
+
+        title:
+            "Rutube",
+
+        mask:
+            "SlicingDices",
+
+        mainIcon:
+            "icons_masked/rutube-starship.webp",
+
+        badgeIcon:
+            "icons_masked/rutube-starship.webp",
+
+        manifest:
+            "rutube-starship.plist",
+
+        fallbackMain:
+            "R",
+
+        fallbackBadge:
+            "SD"
+    },
+
+
+    {
+        slug: "vk",
+
+        category: "social",
+
+        search:
+            "vk вк вконтакте",
+
+        title:
+            "ВКонтакте",
+
+        mask:
+            "VK",
+
+        mainIcon:
+            "icons_masked/VK.webp",
+
+        badgeIcon:
+            "icons_masked/VK.webp",
+
+        manifest:
+            "VK.plist",
+
+        fallbackMain:
+            "V",
+
+        fallbackBadge:
+            "V"
+    },
+
+
+    {
+        slug: "vkmessenger",
+
+        category: "social",
+
+        search:
+            "vk messenger вк мессенджер",
+
+        title:
+            "VK Мессенджер",
+
+        mask:
+            "VK Messenger",
+
+        mainIcon:
+            "icons_masked/VKMessenger.webp",
+
+        badgeIcon:
+            "icons_masked/VKMessenger.webp",
+
+        manifest:
+            "VKMessenger.plist",
+
+        fallbackMain:
+            "V",
+
+        fallbackBadge:
+            "VM"
+    },
+
+
+    {
+        slug: "vkmusic",
+
+        category: "social",
+
+        search:
+            "vk music вк музыка",
+
+        title:
+            "VK Музыка",
+
+        mask:
+            "VK Music",
+
+        mainIcon:
+            "icons_masked/VKMusic.webp",
+
+        badgeIcon:
+            "icons_masked/VKMusic.webp",
+
+        manifest:
+            "VKMusic.plist",
+
+        fallbackMain:
+            "V",
+
+        fallbackBadge:
+            "VM"
+    },
+
+
+    {
+        slug: "vkvideo",
+
+        category: "social",
+
+        search:
+            "vk video вк видео",
+
+        title:
+            "VK Видео",
+
+        mask:
+            "VK Video",
+
+        mainIcon:
+            "icons_masked/VKVideo.webp",
+
+        badgeIcon:
+            "icons_masked/VKVideo.webp",
+
+        manifest:
+            "VKVideo.plist",
+
+        fallbackMain:
+            "VV",
+
+        fallbackBadge:
+            "VV"
+    },
+
+
+    {
+        slug: "mail",
+
+        category: "social",
+
+        search:
+            "mail почта mail.ru email мэйл",
+
+        title:
+            "Почта Mail.ru",
+
+        mask:
+            "Mail",
+
+        mainIcon:
+            "icon_original/mail.webp",
+
+        badgeIcon:
+            "icons_masked/mail.webp",
+
+        manifest:
+            "Mail.plist",
+
+        fallbackMain:
+            "M",
+
+        fallbackBadge:
+            "M"
+    },
+
+
+    {
+        slug: "vk-mail",
+
+        category: "social",
+
+        search:
+            "vk mail вк почта мэйл mail.ru email",
+
+        title:
+            "VK Mail",
+
+        mask:
+            "VK Mail",
+
+        mainIcon:
+            "icons_masked/vk-mail.webp",
+
+        badgeIcon:
+            "icons_masked/vk-mail.webp",
+
+        manifest:
+            "vk-mail.plist",
+
+        fallbackMain:
+            "M",
+
+        fallbackBadge:
+            "VM"
+    },
+
+
+    {
+        slug: "fest",
+
+        category: "other",
+
+        search:
+            "fest ягодный фест ягоды berries volfest",
+
+        title:
+            "Ягодный Фест",
+
+        mask:
+            "Fest",
+
+        mainIcon:
+            "icon_original/fest.webp",
+
+        badgeIcon:
+            "icons_masked/fest.webp",
+
+        manifest:
+            "fest.plist",
+
+        fallbackMain:
+            "ЯФ",
+
+        fallbackBadge:
+            "Ф"
+    },
+
+
+    {
+        slug: "pikabu",
+
+        category: "other",
+
+        search:
+            "pikabu пикабу юмор новости",
+
+        title:
+            "Пикабу",
+
+        mask:
+            "Pikabu",
+
+        mainIcon:
+            "icon_original/pikabu.webp",
+
+        badgeIcon:
+            "icons_masked/pikabu.webp",
+
+        manifest:
+            "Pikabu.plist",
+
+        fallbackMain:
+            "П",
+
+        fallbackBadge:
+            "П"
+    }
+
+];
+
+
+/*
+==================================================
+СЛУЖЕБНЫЕ ФУНКЦИИ
+==================================================
+*/
+
+let currentFilter = "all";
+
+
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replaceAll("&", "&amp;")
+
+        .replaceAll("<", "&lt;")
+
+        .replaceAll(">", "&gt;")
+
+        .replaceAll('"', "&quot;")
+
+        .replaceAll("'", "&#039;");
+}
+
+
+function categoryName(category) {
+
+    if (category === "bank") {
+        return "Банки";
+    }
+
+    if (category === "shop") {
+        return "Магазины";
+    }
+
+    if (category === "social") {
+        return "Соцсети";
+    }
+
+    return "Прочее";
+}
+
+
+/*
+==================================================
+СОЗДАНИЕ КАРТОЧЕК
+==================================================
+*/
+
+function renderApps() {
+
+    const container =
+        document.getElementById("appsContainer");
+
+
+    container.innerHTML = apps.map(app => `
+
+        <div
+            class="app-row"
+            id="app-${escapeHtml(app.slug)}"
+            data-app="${escapeHtml(app.slug)}"
+            data-category="${escapeHtml(app.category)}"
+            data-search="${escapeHtml(app.search)}"
+        >
+
+            <div class="app-left">
+
+                <div class="icon-stack">
+
+                    <div class="icon-main">
+
+                        <img
+                            src="${escapeHtml(app.mainIcon)}"
+                            alt="${escapeHtml(app.title)}"
+                            onerror="this.parentElement.textContent='${escapeHtml(app.fallbackMain)}'"
+                        >
+
+                    </div>
+
+
+                    <div class="icon-badge">
+
+                        <img
+                            src="${escapeHtml(app.badgeIcon)}"
+                            alt="${escapeHtml(app.mask)}"
+                            onerror="this.parentElement.textContent='${escapeHtml(app.fallbackBadge)}'"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="app-meta">
+
+                    <div class="app-title">
+                        ${escapeHtml(app.title)}
+                    </div>
+
+                    <div class="app-mask-title">
+                        ${escapeHtml(app.mask)}
+                    </div>
+
+                    <div class="badge">
+                        ${categoryName(app.category)}
+                    </div>
+
+                    <div
+                        class="share-link"
+                        data-share="${escapeHtml(app.slug)}"
+                    >
+
+                        🔗 Скопировать ссылку
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                class="btn-download"
+
+                href="itms-services://?action=download-manifest&amp;url=${BASE_MANIFEST}${encodeURIComponent(app.manifest)}"
+
+                rel="noopener"
+
+                target="_self"
+            >
+
+                ⬇ Установить
+
+            </a>
+
+        </div>
+
+    `).join("");
+}
+
+
+/*
+==================================================
+ПРЯМАЯ ССЫЛКА
+==================================================
+*/
+
+function appUrl(slug) {
+
+    const url =
+        new URL(window.location.href);
+
+
+    url.search = "";
+
+    url.hash = "";
+
+
+    url.searchParams.set(
+        "app",
+        slug
+    );
+
+
+    return url.toString();
+}
+
+
+/*
+==================================================
+ПОИСК / ФИЛЬТРЫ
+==================================================
+*/
+
+function filterApps() {
+
+    if (
+        document.body.classList.contains(
+            "direct-mode"
+        )
+    ) {
+        return;
+    }
+
+
+    const query =
+        document
+            .getElementById("searchInput")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    document
+        .querySelectorAll(".app-row")
+        .forEach(card => {
+
+            const category =
+                card.dataset.category;
+
+
+            const search =
+                (card.dataset.search || "")
+                    .toLowerCase();
+
+
+            const categoryOK =
+                currentFilter === "all"
+                ||
+                category === currentFilter;
+
+
+            const searchOK =
+                !query
+                ||
+                search.includes(query);
+
+
+            card.classList.toggle(
+                "hidden",
+                !(categoryOK && searchOK)
+            );
+
         });
+}
 
-        function filterApps() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.app-row');
 
-            cards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                const searchData = card.getAttribute('data-search').toLowerCase();
+/*
+==================================================
+ПОДЕЛИТЬСЯ
+==================================================
+*/
 
-                const matchesCategory = (currentFilter === 'all') || (category === currentFilter);
-                const matchesSearch = searchData.includes(query);
+async function shareApp(slug) {
 
-                if (matchesCategory && matchesSearch) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+    const app =
+        apps.find(
+            item => item.slug === slug
+        );
+
+
+    if (!app) {
+        return;
+    }
+
+
+    const url =
+        appUrl(slug);
+
+
+    /*
+    На iPhone откроется
+    стандартное меню "Поделиться"
+    */
+
+    if (navigator.share) {
+
+        try {
+
+            await navigator.share({
+
+                title:
+                    app.title,
+
+                text:
+                    `${app.title} — ${app.mask}`,
+
+                url:
+                    url
+
             });
+
+
+            return;
+
         }
-    </script>
+        catch (error) {
+
+            if (
+                error &&
+                error.name === "AbortError"
+            ) {
+                return;
+            }
+
+        }
+
+    }
+
+
+    /*
+    Если Web Share API
+    недоступен — копируем
+    */
+
+    try {
+
+        await navigator.clipboard.writeText(
+            url
+        );
+
+
+        const element =
+            Array.from(
+                document.querySelectorAll(
+                    "[data-share]"
+                )
+            )
+            .find(
+                item =>
+                    item.dataset.share === slug
+            );
+
+
+        if (element) {
+
+            const oldText =
+                element.textContent;
+
+
+            element.textContent =
+                "✓ Ссылка скопирована";
+
+
+            setTimeout(() => {
+
+                element.textContent =
+                    oldText;
+
+            }, 1400);
+
+        }
+
+    }
+    catch (error) {
+
+        window.prompt(
+            "Скопируйте ссылку:",
+            url
+        );
+
+    }
+
+}
+
+
+/*
+==================================================
+ОТКРЫТИЕ ?app=
+==================================================
+*/
+
+function openDirectApp() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const requested =
+        params.get("app");
+
+
+    /*
+    Если ?app= нет —
+    обычный каталог
+    */
+
+    if (!requested) {
+        return;
+    }
+
+
+    const slug =
+        requested
+            .trim()
+            .toLowerCase();
+
+
+    const app =
+        apps.find(
+
+            item =>
+                item.slug.toLowerCase()
+                === slug
+
+        );
+
+
+    document.body.classList.add(
+        "direct-mode"
+    );
+
+
+    /*
+    Приложение не найдено
+    */
+
+    if (!app) {
+
+        document.body.classList.add(
+            "app-not-found"
+        );
+
+
+        document
+            .getElementById("pageTitle")
+            .textContent =
+                "Приложение не найдено";
+
+
+        return;
+    }
+
+
+    /*
+    Находим карточку
+    */
+
+    const card =
+        Array.from(
+            document.querySelectorAll(
+                ".app-row"
+            )
+        )
+        .find(
+            item =>
+                item.dataset.app
+                === app.slug
+        );
+
+
+    if (card) {
+
+        card.classList.add(
+            "direct-app"
+        );
+
+    }
+
+
+    /*
+    Меняем заголовок
+    */
+
+    document
+        .getElementById("pageTitle")
+        .textContent =
+            app.title;
+
+
+    document.title =
+        `${app.title} — установка`;
+
+}
+
+
+/*
+==================================================
+КЛИК ПО "СКОПИРОВАТЬ ССЫЛКУ"
+==================================================
+*/
+
+document.addEventListener(
+    "click",
+    event => {
+
+        const share =
+            event.target.closest(
+                "[data-share]"
+            );
+
+
+        if (share) {
+
+            shareApp(
+                share.dataset.share
+            );
+
+        }
+
+    }
+);
+
+
+/*
+==================================================
+ПОИСК
+==================================================
+*/
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "input",
+        filterApps
+    );
+
+
+/*
+==================================================
+НИЖНЕЕ МЕНЮ
+==================================================
+*/
+
+document
+    .querySelectorAll(".tab-btn")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(".tab-btn")
+                    .forEach(btn => {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentFilter =
+                    button.dataset.filter;
+
+
+                filterApps();
+
+            }
+        );
+
+    });
+
+
+/*
+==================================================
+ВЕСЬ КАТАЛОГ
+==================================================
+*/
+
+document
+    .getElementById("showAllBtn")
+    .addEventListener(
+        "click",
+        () => {
+
+            window.location.href =
+                window.location.pathname;
+
+        }
+    );
+
+
+/*
+==================================================
+ПОДЕЛИТЬСЯ В РЕЖИМЕ ?app=
+==================================================
+*/
+
+document
+    .getElementById("shareCurrentBtn")
+    .addEventListener(
+        "click",
+        () => {
+
+            const slug =
+                new URLSearchParams(
+                    window.location.search
+                )
+                .get("app");
+
+
+            if (slug) {
+
+                shareApp(
+                    slug.toLowerCase()
+                );
+
+            }
+
+        }
+    );
+
+
+/*
+==================================================
+ЗАПУСК
+==================================================
+*/
+
+renderApps();
+
+openDirectApp();
+
+</script>
+
 </body>
 </html>
