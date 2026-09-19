@@ -2,81 +2,129 @@
   {
     "slug": "mail",
     "title": "Mail",
-    "icon": "mail.webp",
+    "category": "Почта",
     "version": "1.0.0",
-    "description": "Почта",
+    "icon": "mail.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/Mail.plist"
   },
   {
     "slug": "vk-mail",
     "title": "VK Mail",
-    "icon": "vk-mail.webp",
+    "category": "Почта",
     "version": "1.0.0",
-    "description": "Почта VK",
+    "icon": "vk-mail.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/vk-mail.plist"
   },
   {
     "slug": "gazprombank",
     "title": "Газпромбанк",
-    "icon": "gazprombank.webp",
+    "category": "Банки",
     "version": "5.6.0",
-    "description": "Банковское приложение",
+    "icon": "gazprombank.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/Gazprombank.plist"
   },
   {
     "slug": "potok",
     "title": "Поток",
-    "icon": "potok.webp",
+    "category": "Банки",
     "version": "1.0.0",
-    "description": "Приложение",
+    "icon": "potok.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/potok.plist"
   },
   {
     "slug": "scb",
     "title": "Совкомбанк",
-    "icon": "scb.webp",
+    "category": "Банки",
     "version": "1.0.0",
-    "description": "Банковское приложение",
+    "icon": "scb.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/scb.plist"
   },
   {
     "slug": "brethio",
     "title": "Brethio",
-    "icon": "brethio.webp",
+    "category": "Финансы",
     "version": "1.0.0",
-    "description": "Приложение",
+    "icon": "brethio.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/brethio.plist"
   },
   {
     "slug": "fest",
     "title": "Fest",
-    "icon": "fest.webp",
+    "category": "Сервисы",
     "version": "1.0.0",
-    "description": "Приложение",
+    "icon": "fest.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/fest.plist"
   },
   {
     "slug": "abk",
-    "title": "АБК",
-    "icon": "abk.webp",
+    "title": "Металлинвестбанк",
+    "category": "Банки",
     "version": "1.0.0",
-    "description": "Металлоинвестбанк",
+    "icon": "abk.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/abk.plist"
   },
   {
     "slug": "blum",
     "title": "Blum",
-    "icon": "blum.webp",
+    "category": "Банки",
     "version": "1.0.0",
-    "description": "Рокетбанк",
+    "icon": "blum.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/blum.plist"
   },
   {
     "slug": "tbank",
     "title": "Т-Банк",
-    "icon": "tbank.webp",
+    "category": "Банки",
     "version": "1.0.0",
-    "description": "Банковское приложение",
+    "icon": "tbank.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/tbank.plist"
+  },
+  {
+    "slug": "max",
+    "title": "MAX",
+    "category": "Мессенджеры",
+    "version": "1.0.0",
+    "icon": "max.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/max.plist"
+  },
+  {
+    "slug": "vk",
+    "title": "ВКонтакте",
+    "category": "Социальные",
+    "version": "1.0.0",
+    "icon": "vk.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/VK.plist"
+  },
+  {
+    "slug": "vkvideo",
+    "title": "VK Видео",
+    "category": "Видео",
+    "version": "1.0.0",
+    "icon": "vkvideo.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/VKVideo.plist"
+  },
+  {
+    "slug": "vkmusic",
+    "title": "VK Музыка",
+    "category": "Музыка",
+    "version": "1.0.0",
+    "icon": "vkmusic.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/VKMusic.plist"
+  },
+  {
+    "slug": "vkmessenger",
+    "title": "VK Messenger",
+    "category": "Мессенджеры",
+    "version": "1.0.0",
+    "icon": "vkmessenger.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/VKMessenger.plist"
+  },
+  {
+    "slug": "pikabu",
+    "title": "Пикабу",
+    "category": "Социальные",
+    "version": "1.0.0",
+    "icon": "pikabu.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/Pikabu.plist"
   }
 ]
