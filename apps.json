@@ -4,7 +4,7 @@
     "title": "Mail",
     "category": "Почта",
     "version": "1.0.0",
-    "icon": "mail.webp",
+    "icon": "icons_masked/mail.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/Mail.plist"
   },
   {
@@ -12,7 +12,7 @@
     "title": "VK Mail",
     "category": "Почта",
     "version": "1.0.0",
-    "icon": "vk-mail.webp",
+    "icon": "icons_masked/vk-mail.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/vk-mail.plist"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Газпромбанк",
     "category": "Банки",
     "version": "5.6.0",
-    "icon": "gazprombank.webp",
+    "icon": "icons_masked/Gazprombank.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/Gazprombank.plist"
   },
   {
@@ -28,7 +28,7 @@
     "title": "Поток",
     "category": "Банки",
     "version": "1.0.0",
-    "icon": "potok.webp",
+    "icon": "icons_masked/potok.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/potok.plist"
   },
   {
@@ -36,95 +36,79 @@
     "title": "Совкомбанк",
     "category": "Банки",
     "version": "1.0.0",
-    "icon": "scb.webp",
+    "icon": "icons_masked/scb.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/scb.plist"
   },
   {
-    "slug": "brethio",
-    "title": "Brethio",
-    "category": "Финансы",
-    "version": "1.0.0",
-    "icon": "brethio.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/brethio.plist"
-  },
-  {
-    "slug": "fest",
-    "title": "Fest",
+    "slug": "pikabu",
+    "title": "Pikabu",
     "category": "Сервисы",
     "version": "1.0.0",
-    "icon": "fest.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/fest.plist"
-  },
-  {
-    "slug": "abk",
-    "title": "Металлинвестбанк",
-    "category": "Банки",
-    "version": "1.0.0",
-    "icon": "abk.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/abk.plist"
-  },
-  {
-    "slug": "blum",
-    "title": "Blum",
-    "category": "Банки",
-    "version": "1.0.0",
-    "icon": "blum.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/blum.plist"
-  },
-  {
-    "slug": "tbank",
-    "title": "Т-Банк",
-    "category": "Банки",
-    "version": "1.0.0",
-    "icon": "tbank.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/tbank.plist"
+    "icon": "icons_masked/pikabu.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/pikabu.plist"
   },
   {
     "slug": "max",
     "title": "MAX",
     "category": "Мессенджеры",
     "version": "1.0.0",
-    "icon": "max.webp",
+    "icon": "icons_masked/max.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/max.plist"
   },
   {
     "slug": "vk",
-    "title": "ВКонтакте",
+    "title": "VK",
     "category": "Социальные",
     "version": "1.0.0",
-    "icon": "vk.webp",
+    "icon": "icons_masked/VK.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/VK.plist"
   },
   {
-    "slug": "vkvideo",
+    "slug": "vk-video",
     "title": "VK Видео",
     "category": "Видео",
     "version": "1.0.0",
-    "icon": "vkvideo.webp",
+    "icon": "icons_masked/VKVideo.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/VKVideo.plist"
   },
   {
-    "slug": "vkmusic",
+    "slug": "vk-music",
     "title": "VK Музыка",
     "category": "Музыка",
     "version": "1.0.0",
-    "icon": "vkmusic.webp",
+    "icon": "icons_masked/VKMusic.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/VKMusic.plist"
   },
   {
-    "slug": "vkmessenger",
-    "title": "VK Messenger",
-    "category": "Мессенджеры",
+    "slug": "breathio",
+    "title": "Breathio",
+    "category": "Здоровье",
     "version": "1.0.0",
-    "icon": "vkmessenger.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/VKMessenger.plist"
+    "icon": "icons_masked/Breathio.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/breathio.plist"
   },
   {
-    "slug": "pikabu",
-    "title": "Пикабу",
-    "category": "Социальные",
+    "slug": "fest",
+    "title": "Фест",
+    "category": "Сервисы",
     "version": "1.0.0",
-    "icon": "pikabu.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/Pikabu.plist"
+    "icon": "icons_masked/fest.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/fest.plist"
+  },
+  {
+    "slug": "abk",
+    "title": "АБК",
+    "category": "Банки",
+    "version": "1.0.0",
+    "icon": "icons_masked/abk.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/abk.plist"
+  },
+  {
+    "slug": "sber-finance",
+    "title": "Сбер Финанс",
+    "category": "Банки",
+    "version": "1.0.0",
+    "icon": "icons_masked/sber-finance.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/sber-finance.plist"
   }
 ]
