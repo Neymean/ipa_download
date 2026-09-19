@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "mail",
+    "title": "Mail",
+    "icon": "Mail.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/Mail.plist"
+  },
+  {
+    "slug": "vk-mail",
+    "title": "VK Mail",
+    "icon": "vk-mail.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/vk-mail.plist"
+  },
+  {
+    "slug": "gazprombank",
+    "title": "Газпромбанк",
+    "icon": "Gazprombank.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/Gazprombank.plist"
+  },
+  {
+    "slug": "potok",
+    "title": "Поток",
+    "icon": "potok.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/potok.plist"
+  }
+]
