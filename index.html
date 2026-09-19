@@ -432,7 +432,45 @@ body.app-not-found .not-found {
     }
 }
 </style>
+/* =========================
+   ТАЙМЕР УСТАНОВКИ
+   ========================= */
 
+.download-timer {
+    display: none;
+    text-align: center;
+    margin: 4px auto 18px;
+}
+
+.direct-mode .download-timer {
+    display: block;
+}
+
+.timer-label {
+    color: var(--text-sub);
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.timer-value {
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.download-timer.timer-expired .timer-label,
+.download-timer.timer-expired .timer-value {
+    color: #ff453a;
+}
+
+.btn-download.disabled {
+    background: #3a3a3c;
+    color: #8e8e93;
+    pointer-events: none;
+    opacity: 0.7;
+}
 </head>
 
 <body>
@@ -440,6 +478,15 @@ body.app-not-found .not-found {
 <div class="header">
 
     <h1 id="pageTitle">Каталог</h1>
+    <div class="download-timer" id="downloadTimer">
+    <div class="timer-label" id="timerLabel">
+        Ссылка на установку доступна ещё
+    </div>
+
+    <div class="timer-value" id="timerValue">
+        30:00
+    </div>
+</div>
 
     <div class="search-wrap">
 
@@ -1868,11 +1915,264 @@ document
 ЗАПУСК
 ==================================================
 */
+/*
+==================================================
+ТАЙМЕР ПРЯМОЙ ССЫЛКИ — 30 МИНУТ
+==================================================
+*/
 
+const DOWNLOAD_LIFETIME = 30 * 60 * 1000;
+
+let downloadTimerInterval = null;
+
+
+function startDownloadTimer(slug) {
+
+    if (!slug) {
+        return;
+    }
+
+
+    const timerBox =
+        document.getElementById(
+            "downloadTimer"
+        );
+
+
+    const timerValue =
+        document.getElementById(
+            "timerValue"
+        );
+
+
+    const timerLabel =
+        document.getElementById(
+            "timerLabel"
+        );
+
+
+    if (
+        !timerBox ||
+        !timerValue ||
+        !timerLabel
+    ) {
+        return;
+    }
+
+
+    /*
+    Для каждого приложения свой таймер.
+
+    potok -> свой
+    abk -> свой
+    gazprombank -> свой
+    */
+
+    const storageKey =
+        "install_timer_" + slug;
+
+
+    let expireTime =
+        Number(
+            localStorage.getItem(
+                storageKey
+            )
+        );
+
+
+    /*
+    Если это первое открытие ссылки,
+    запускаем новые 30 минут.
+    */
+
+    if (
+        !expireTime ||
+        Number.isNaN(expireTime)
+    ) {
+
+        expireTime =
+            Date.now()
+            +
+            DOWNLOAD_LIFETIME;
+
+
+        localStorage.setItem(
+            storageKey,
+            String(expireTime)
+        );
+
+    }
+
+
+    function disableInstallButton() {
+
+        const card =
+            document.querySelector(
+                ".direct-app"
+            );
+
+
+        if (!card) {
+            return;
+        }
+
+
+        const button =
+            card.querySelector(
+                ".btn-download"
+            );
+
+
+        if (!button) {
+            return;
+        }
+
+
+        /*
+        Сохраняем исходную ссылку,
+        если вдруг понадобится.
+        */
+
+        if (!button.dataset.installUrl) {
+
+            button.dataset.installUrl =
+                button.getAttribute("href")
+                ||
+                "";
+
+        }
+
+
+        button.classList.add(
+            "disabled"
+        );
+
+
+        button.removeAttribute(
+            "href"
+        );
+
+
+        button.textContent =
+            "Время истекло";
+
+    }
+
+
+    function updateTimer() {
+
+        const remaining =
+            expireTime
+            -
+            Date.now();
+
+
+        /*
+        Время закончилось
+        */
+
+        if (remaining <= 0) {
+
+            clearInterval(
+                downloadTimerInterval
+            );
+
+
+            timerValue.textContent =
+                "00:00";
+
+
+            timerLabel.textContent =
+                "Время для установки истекло";
+
+
+            timerBox.classList.add(
+                "timer-expired"
+            );
+
+
+            disableInstallButton();
+
+
+            return;
+        }
+
+
+        /*
+        Переводим миллисекунды
+        в минуты и секунды
+        */
+
+        const totalSeconds =
+            Math.ceil(
+                remaining / 1000
+            );
+
+
+        const minutes =
+            Math.floor(
+                totalSeconds / 60
+            );
+
+
+        const seconds =
+            totalSeconds % 60;
+
+
+        timerValue.textContent =
+            String(minutes)
+                .padStart(
+                    2,
+                    "0"
+                )
+            +
+            ":"
+            +
+            String(seconds)
+                .padStart(
+                    2,
+                    "0"
+                );
+
+    }
+
+
+    /*
+    Сразу обновляем,
+    чтобы не ждать первую секунду.
+    */
+
+    updateTimer();
+
+
+    downloadTimerInterval =
+        setInterval(
+            updateTimer,
+            1000
+        );
+
+}
 renderApps();
 
 openDirectApp();
 
+
+const directAppSlug =
+    new URLSearchParams(
+        window.location.search
+    )
+    .get("app");
+
+
+if (directAppSlug) {
+
+    startDownloadTimer(
+        directAppSlug
+            .trim()
+            .toLowerCase()
+    );
+
+}
 </script>
 
 </body>
