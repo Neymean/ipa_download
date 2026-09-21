@@ -285,12 +285,12 @@
     "mask": "VK Mail",
     "category": "social",
     "categoryTitle": "Соцсети",
-    "version": "1.0.0",
-    "search": "vk mail вк почта мэйл mail.ru email",
+    "version": "3.92.0",
+    "search": "VK Mail VK Mail vk-mail",
     "mainIcon": "icons_masked/vk-mail.webp",
     "badgeIcon": "icons_masked/vk-mail.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/vk-mail.plist",
-    "fallbackMain": "M",
+    "fallbackMain": "VM",
     "fallbackBadge": "VM"
   },
   {
