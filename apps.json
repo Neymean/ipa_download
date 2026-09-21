@@ -152,6 +152,14 @@
     "manifest": "https://neymean.github.io/ipa_download/plist/sber-finance.plist"
   },
   {
+  "slug": "sberinvest",
+  "title": "СберИнвестиции",
+  "category": "Финансы",
+  "version": "4.3.0",
+  "icon": "icons_masked/sberinvest.webp",
+  "manifest": "https://neymean.github.io/ipa_download/plist/sberinvest.plist"
+  },
+  {
     "slug": "scb-notes",
     "title": "Совкомбанк Notes",
     "category": "Банки",
