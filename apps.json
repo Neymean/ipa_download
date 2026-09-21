@@ -348,5 +348,19 @@
     "manifest": "https://neymean.github.io/ipa_download/plist/cifra.plist",
     "fallbackMain": "ЦБ",
     "fallbackBadge": "ЦБ"
+  },
+  {
+    "slug": "dom-yogi",
+    "title": "Дом йоги",
+    "mask": "Дом йоги",
+    "category": "bank",
+    "categoryTitle": "Банки",
+    "version": "10.0.0",
+    "search": "Дом йоги Дом йоги dom-yogi",
+    "mainIcon": "icon_original/dom-yogi.webp",
+    "badgeIcon": "icons_masked/dom-yogi.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/dom-yogi.plist",
+    "fallbackMain": "ДЙ",
+    "fallbackBadge": "ДЙ"
   }
 ]
