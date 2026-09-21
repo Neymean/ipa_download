@@ -362,5 +362,19 @@
     "manifest": "https://neymean.github.io/ipa_download/plist/gazprombank.plist",
     "fallbackMain": "ДВ",
     "fallbackBadge": "ДВ"
+  },
+  {
+    "slug": "mobio",
+    "title": "Мобио",
+    "mask": "Мобио",
+    "category": "bank",
+    "categoryTitle": "Банки",
+    "version": "1.0.2",
+    "search": "Мобио Мобио mobio",
+    "mainIcon": "icon_original/mobio.webp",
+    "badgeIcon": "icons_masked/mobio.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/mobio.plist",
+    "fallbackMain": "МО",
+    "fallbackBadge": "МО"
   }
 ]
