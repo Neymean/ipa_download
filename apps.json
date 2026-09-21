@@ -282,16 +282,16 @@
   {
     "slug": "mail",
     "title": "Почта Mail.ru",
-    "mask": "Почта Mail.ru",
+    "mask": "Mail",
     "category": "social",
     "categoryTitle": "Соцсети",
     "version": "15.92.0",
-    "search": "Почта Mail.ru Почта Mail.ru mail",
+    "search": "mail почта mail.ru email мэйл",
     "mainIcon": "icon_original/mail.webp",
     "badgeIcon": "icons_masked/mail.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/Mail.plist",
-    "fallbackMain": "ПM",
-    "fallbackBadge": "ПM"
+    "fallbackMain": "M",
+    "fallbackBadge": "M"
   },
   {
     "slug": "vk-mail",
