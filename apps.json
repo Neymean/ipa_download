@@ -212,16 +212,16 @@
   {
     "slug": "rutube-starship",
     "title": "Rutube",
-    "mask": "SlicingDices",
+    "mask": "SpaceshipsBattle",
     "category": "social",
     "categoryTitle": "Соцсети",
-    "version": "1.0.0",
-    "search": "slicingdices rutube рутуб видео",
+    "version": "1.5.0",
+    "search": "Rutube SpaceshipsBattle rutube-starship",
     "mainIcon": "icons_masked/rutube-starship.webp",
     "badgeIcon": "icons_masked/rutube-starship.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/rutube-starship.plist",
-    "fallbackMain": "R",
-    "fallbackBadge": "SD"
+    "fallbackMain": "RU",
+    "fallbackBadge": "SP"
   },
   {
     "slug": "vk",
