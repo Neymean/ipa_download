@@ -187,13 +187,13 @@
     "mask": "MAX",
     "category": "social",
     "categoryTitle": "Соцсети",
-    "version": "1.0.0",
-    "search": "max макс соцсеть",
+    "version": "26.17.3",
+    "search": "МАКС MAX max",
     "mainIcon": "icons_masked/max.webp",
     "badgeIcon": "icons_masked/max.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/max.plist",
-    "fallbackMain": "M",
-    "fallbackBadge": "M"
+    "fallbackMain": "МА",
+    "fallbackBadge": "MA"
   },
   {
     "slug": "rutube-starship",
