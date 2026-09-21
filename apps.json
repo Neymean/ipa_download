@@ -334,5 +334,19 @@
     "manifest": "https://neymean.github.io/ipa_download/plist/Pikabu.plist",
     "fallbackMain": "П",
     "fallbackBadge": "П"
+  },
+  {
+    "slug": "test-app",
+    "title": "Test App",
+    "mask": "Test",
+    "category": "other",
+    "categoryTitle": "Прочее",
+    "version": "1.0.0",
+    "search": "Test",
+    "mainIcon": "icons_masked/Anero.webp",
+    "badgeIcon": "icons_masked/Anero.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/Anero.plist",
+    "fallbackMain": "TA",
+    "fallbackBadge": "TE"
   }
 ]
