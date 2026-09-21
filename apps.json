@@ -243,12 +243,12 @@
     "mask": "VK Messenger",
     "category": "social",
     "categoryTitle": "Соцсети",
-    "version": "1.0.0",
-    "search": "vk messenger вк мессенджер",
+    "version": "1.307",
+    "search": "VK Мессенджер VK Messenger vkmessenger",
     "mainIcon": "icons_masked/VKMessenger.webp",
     "badgeIcon": "icons_masked/VKMessenger.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/VKMessenger.plist",
-    "fallbackMain": "V",
+    "fallbackMain": "VМ",
     "fallbackBadge": "VM"
   },
   {
