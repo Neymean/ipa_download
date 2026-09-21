@@ -1,12 +1,12 @@
 [
   {
     "slug": "alphabank-holder",
-    "title": "А-Ключ",
+    "title": "Альфа-банк",
     "mask": "А-Ключ",
     "category": "bank",
     "categoryTitle": "Банки",
     "version": "2.0.0",
-    "search": "а-ключ ключ kluch альфа alfa",
+    "search": "Альфа-банк А-Ключ alphabank-holder",
     "mainIcon": "icons_masked/Kluch.webp",
     "badgeIcon": "icons_masked/Kluch.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/alphabank-holder.plist",
