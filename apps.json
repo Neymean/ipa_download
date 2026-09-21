@@ -168,20 +168,6 @@
     "fallbackBadge": "АВК"
   },
   {
-    "slug": "gazprombank",
-    "title": "Газпромбанк",
-    "mask": "До вершины",
-    "category": "bank",
-    "categoryTitle": "Банки",
-    "version": "5.6.0",
-    "search": "газпромбанк газпром gazprombank gazprom до вершины",
-    "mainIcon": "icon_original/gazprombank.webp",
-    "badgeIcon": "icons_masked/do-vershiny.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/gazprombank.plist",
-    "fallbackMain": "Г",
-    "fallbackBadge": "ДВ"
-  },
-  {
     "slug": "anero",
     "title": "Авито",
     "mask": "Anero",
