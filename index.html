@@ -602,750 +602,7 @@ const BASE_MANIFEST =
 ==================================================
 */
 
-const apps = [
-
-    {
-    slug: "alphabank-holder",
-
-    category: "bank",
-
-    search:
-        "а-ключ ключ kluch альфа alfa",
-
-    title:
-        "А-Ключ",
-
-    mask:
-        "А-Ключ",
-
-    mainIcon:
-        "icons_masked/Kluch.webp",
-
-    badgeIcon:
-        "icons_masked/Kluch.webp",
-
-    manifest:
-        "alphabank-holder.plist",
-
-    fallbackMain:
-        "А",
-
-    fallbackBadge:
-        "К"
-    },
-
-
-    {
-        slug: "sber-finance",
-
-        category: "bank",
-
-        search:
-            "online finance сбер сбербанк sber",
-
-        title:
-            "СберБанк",
-
-        mask:
-            "Online Finance",
-
-        mainIcon:
-            "icons_masked/sber-finance.webp",
-
-        badgeIcon:
-            "icons_masked/sber-finance.webp",
-
-        manifest:
-            "sber-finance.plist",
-
-        fallbackMain:
-            "С",
-
-        fallbackBadge:
-            "OF"
-    },
-{
-    slug: "sberinvest",
-
-    category: "bank",
-
-    search:
-        "сбер инвестиции сберинвестиции sber invest sberinvest сияние",
-
-    title:
-        "СберИнвестиции",
-
-    mask:
-        "Сияние",
-
-    mainIcon:
-        "icon_original/sberinvest.webp",
-
-    badgeIcon:
-        "icons_masked/sberinvest.webp",
-
-    manifest:
-        "sberinvest.plist",
-
-    fallbackMain:
-        "СИ",
-
-    fallbackBadge:
-        "С"
-},
-
-    {
-        slug: "potok",
-
-        category: "bank",
-
-        search:
-            "поток potok сбер бизнес sber business",
-
-        title:
-            "СберБизнес",
-
-        mask:
-            "Поток",
-
-        mainIcon:
-            "icon_original/sberbusiness.webp",
-
-        badgeIcon:
-            "icons_masked/potok.webp",
-
-        manifest:
-            "potok.plist",
-
-        fallbackMain:
-            "СБ",
-
-        fallbackBadge:
-            "П"
-    },
-
-
-    {
-        slug: "tbank",
-
-        category: "bank",
-
-        search:
-            "craftersy т-банк тинькофф tinkoff tbank",
-
-        title:
-            "Т-Банк",
-
-        mask:
-            "Craftersy",
-
-        mainIcon:
-            "icons_masked/tbank-Toast.webp",
-
-        badgeIcon:
-            "icons_masked/tbank-Toast.webp",
-
-        manifest:
-            "tbank.plist",
-
-        fallbackMain:
-            "Т",
-
-        fallbackBadge:
-            "C"
-    },
-
-
-    {
-        slug: "vtb-sirius",
-
-        category: "bank",
-
-        search:
-            "сириус втб vtb",
-
-        title:
-            "ВТБ",
-
-        mask:
-            "Сириус",
-
-        mainIcon:
-            "icons_masked/vtb-sirius.webp",
-
-        badgeIcon:
-            "icons_masked/vtb-sirius.webp",
-
-        manifest:
-            "vtb-sirius.plist",
-
-        fallbackMain:
-            "В",
-
-        fallbackBadge:
-            "С"
-    },
-
-
-    {
-        slug: "yoomoney",
-
-        category: "bank",
-
-        search:
-            "юmoney yoomoney яндекс деньги",
-
-        title:
-            "ЮMoney",
-
-        mask:
-            "ЮMoney",
-
-        mainIcon:
-            "icons_masked/YooMoney.webp",
-
-        badgeIcon:
-            "icons_masked/YooMoney.webp",
-
-        manifest:
-            "YooMoney.plist",
-
-        fallbackMain:
-            "Ю",
-
-        fallbackBadge:
-            "Ю"
-    },
-
-
-    {
-        slug: "yapay",
-
-        category: "bank",
-
-        search:
-            "yapay яндекс пэй yandex",
-
-        title:
-            "Яндекс Пэй",
-
-        mask:
-            "Яндекс Пэй",
-
-        mainIcon:
-            "icons_masked/yapay.webp",
-
-        badgeIcon:
-            "icons_masked/yapay.webp",
-
-        manifest:
-            "yapay.plist",
-
-        fallbackMain:
-            "Я",
-
-        fallbackBadge:
-            "Я"
-    },
-
-
-    {
-        slug: "blum",
-
-        category: "bank",
-
-        search:
-            "блум blum рокетбанк rocket rocketbank",
-
-        title:
-            "Рокетбанк",
-
-        mask:
-            "Блум",
-
-        mainIcon:
-            "icon_original/rocketbank.webp",
-
-        badgeIcon:
-            "icons_masked/blum.webp",
-
-        manifest:
-            "blum.plist",
-
-        fallbackMain:
-            "Р",
-
-        fallbackBadge:
-            "Б"
-    },
-
-
-    {
-        slug: "scb-notes",
-
-        category: "bank",
-
-        search:
-            "scb notes совкомбанк sovcombank",
-
-        title:
-            "Совкомбанк",
-
-        mask:
-            "SCB Notes",
-
-        mainIcon:
-            "icon_original/sovkombank.webp",
-
-        badgeIcon:
-            "icons_masked/scb.webp",
-
-        manifest:
-            "scb-notes.plist",
-
-        fallbackMain:
-            "С",
-
-        fallbackBadge:
-            "SCB"
-    },
-
-
-    {
-        slug: "breathio",
-
-        category: "bank",
-
-        search:
-            "breathio точка банк tochka дыхание",
-
-        title:
-            "Точка Банк",
-
-        mask:
-            "Breathio",
-
-        mainIcon:
-            "icon_original/tochka.webp",
-
-        badgeIcon:
-            "icons_masked/Breathio.webp",
-
-        manifest:
-            "Breathio.plist",
-
-        fallbackMain:
-            "Т",
-
-        fallbackBadge:
-            "B"
-    },
-
-
-    {
-        slug: "abk",
-
-        category: "bank",
-
-        search:
-            "металлинвестбанк metallinvestbank авк гид abk",
-
-        title:
-            "Металлинвестбанк",
-
-        mask:
-            "АВК Гид",
-
-        mainIcon:
-            "icon_original/metallinvestbank.webp",
-
-        badgeIcon:
-            "icons_masked/abk.webp",
-
-        manifest:
-            "abk.plist",
-
-        fallbackMain:
-            "М",
-
-        fallbackBadge:
-            "АВК"
-    },
-
-
-    {
-        slug: "gazprombank",
-
-        category: "bank",
-
-        search:
-            "газпромбанк газпром gazprombank gazprom до вершины",
-
-        title:
-            "Газпромбанк",
-
-        mask:
-            "До вершины",
-
-        mainIcon:
-            "icon_original/gazprombank.webp",
-
-        badgeIcon:
-            "icons_masked/do-vershiny.webp",
-
-        manifest:
-            "gazprombank.plist",
-
-        fallbackMain:
-            "Г",
-
-        fallbackBadge:
-            "ДВ"
-    },
-
-
-    {
-        slug: "anero",
-
-        category: "shop",
-
-        search:
-            "авито anero онлайн помощник объявления avito",
-
-        title:
-            "Авито",
-
-        mask:
-            "Anero",
-
-        mainIcon:
-            "icons_masked/Anero.webp",
-
-        badgeIcon:
-            "icons_masked/Anero.webp",
-
-        manifest:
-            "Anero.plist",
-
-        fallbackMain:
-            "А",
-
-        fallbackBadge:
-            "AN"
-    },
-
-
-    {
-        slug: "max",
-
-        category: "social",
-
-        search:
-            "max макс соцсеть",
-
-        title:
-            "МАКС",
-
-        mask:
-            "MAX",
-
-        mainIcon:
-            "icons_masked/max.webp",
-
-        badgeIcon:
-            "icons_masked/max.webp",
-
-        manifest:
-            "max.plist",
-
-        fallbackMain:
-            "M",
-
-        fallbackBadge:
-            "M"
-    },
-
-
-    {
-        slug: "rutube-starship",
-
-        category: "social",
-
-        search:
-            "slicingdices rutube рутуб видео",
-
-        title:
-            "Rutube",
-
-        mask:
-            "SlicingDices",
-
-        mainIcon:
-            "icons_masked/rutube-starship.webp",
-
-        badgeIcon:
-            "icons_masked/rutube-starship.webp",
-
-        manifest:
-            "rutube-starship.plist",
-
-        fallbackMain:
-            "R",
-
-        fallbackBadge:
-            "SD"
-    },
-
-
-    {
-        slug: "vk",
-
-        category: "social",
-
-        search:
-            "vk вк вконтакте",
-
-        title:
-            "ВКонтакте",
-
-        mask:
-            "VK",
-
-        mainIcon:
-            "icons_masked/VK.webp",
-
-        badgeIcon:
-            "icons_masked/VK.webp",
-
-        manifest:
-            "VK.plist",
-
-        fallbackMain:
-            "V",
-
-        fallbackBadge:
-            "V"
-    },
-
-
-    {
-        slug: "vkmessenger",
-
-        category: "social",
-
-        search:
-            "vk messenger вк мессенджер",
-
-        title:
-            "VK Мессенджер",
-
-        mask:
-            "VK Messenger",
-
-        mainIcon:
-            "icons_masked/VKMessenger.webp",
-
-        badgeIcon:
-            "icons_masked/VKMessenger.webp",
-
-        manifest:
-            "VKMessenger.plist",
-
-        fallbackMain:
-            "V",
-
-        fallbackBadge:
-            "VM"
-    },
-
-
-    {
-        slug: "vkmusic",
-
-        category: "social",
-
-        search:
-            "vk music вк музыка",
-
-        title:
-            "VK Музыка",
-
-        mask:
-            "VK Music",
-
-        mainIcon:
-            "icons_masked/VKMusic.webp",
-
-        badgeIcon:
-            "icons_masked/VKMusic.webp",
-
-        manifest:
-            "VKMusic.plist",
-
-        fallbackMain:
-            "V",
-
-        fallbackBadge:
-            "VM"
-    },
-
-
-    {
-        slug: "vkvideo",
-
-        category: "social",
-
-        search:
-            "vk video вк видео",
-
-        title:
-            "VK Видео",
-
-        mask:
-            "VK Video",
-
-        mainIcon:
-            "icons_masked/VKVideo.webp",
-
-        badgeIcon:
-            "icons_masked/VKVideo.webp",
-
-        manifest:
-            "VKVideo.plist",
-
-        fallbackMain:
-            "VV",
-
-        fallbackBadge:
-            "VV"
-    },
-
-
-    {
-        slug: "mail",
-
-        category: "social",
-
-        search:
-            "mail почта mail.ru email мэйл",
-
-        title:
-            "Почта Mail.ru",
-
-        mask:
-            "Mail",
-
-        mainIcon:
-            "icon_original/mail.webp",
-
-        badgeIcon:
-            "icons_masked/mail.webp",
-
-        manifest:
-            "Mail.plist",
-
-        fallbackMain:
-            "M",
-
-        fallbackBadge:
-            "M"
-    },
-
-
-    {
-        slug: "vk-mail",
-
-        category: "social",
-
-        search:
-            "vk mail вк почта мэйл mail.ru email",
-
-        title:
-            "VK Mail",
-
-        mask:
-            "VK Mail",
-
-        mainIcon:
-            "icons_masked/vk-mail.webp",
-
-        badgeIcon:
-            "icons_masked/vk-mail.webp",
-
-        manifest:
-            "vk-mail.plist",
-
-        fallbackMain:
-            "M",
-
-        fallbackBadge:
-            "VM"
-    },
-
-
-    {
-        slug: "fest",
-
-        category: "other",
-
-        search:
-            "fest ягодный фест ягоды berries volfest",
-
-        title:
-            "Ягодный Фест",
-
-        mask:
-            "Fest",
-
-        mainIcon:
-            "icon_original/fest.webp",
-
-        badgeIcon:
-            "icons_masked/fest.webp",
-
-        manifest:
-            "fest.plist",
-
-        fallbackMain:
-            "ЯФ",
-
-        fallbackBadge:
-            "Ф"
-    },
-
-
-    {
-        slug: "pikabu",
-
-        category: "other",
-
-        search:
-            "pikabu пикабу юмор новости",
-
-        title:
-            "Пикабу",
-
-        mask:
-            "Pikabu",
-
-        mainIcon:
-            "icon_original/pikabu.webp",
-
-        badgeIcon:
-            "icons_masked/pikabu.webp",
-
-        manifest:
-            "Pikabu.plist",
-
-        fallbackMain:
-            "П",
-
-        fallbackBadge:
-            "П"
-    }
-
-];
-
+let apps = [];
 
 /*
 ==================================================
@@ -1471,7 +728,7 @@ function renderApps() {
             <a
                 class="btn-download"
 
-                href="itms-services://?action=download-manifest&amp;url=${BASE_MANIFEST}${encodeURIComponent(app.manifest)}"
+                href="itms-services://?action=download-manifest&amp;url=${encodeURIComponent(app.manifest)}"
 
                 rel="noopener"
 
@@ -2181,28 +1438,78 @@ function startDownloadTimer(slug) {
         );
 
 }
-renderApps();
+async function loadApps() {
 
-openDirectApp();
+    try {
 
-
-const directAppSlug =
-    new URLSearchParams(
-        window.location.search
-    )
-    .get("app");
+        const response =
+            await fetch(
+                "./apps.json?v=" + Date.now()
+            );
 
 
-if (directAppSlug) {
+        if (!response.ok) {
 
-    startDownloadTimer(
-        directAppSlug
-            .trim()
-            .toLowerCase()
-    );
+            throw new Error(
+                "Не удалось загрузить apps.json"
+            );
+
+        }
+
+
+        apps =
+            await response.json();
+
+
+        renderApps();
+
+
+        openDirectApp();
+
+
+        const directAppSlug =
+            new URLSearchParams(
+                window.location.search
+            )
+            .get("app");
+
+
+        if (directAppSlug) {
+
+            startDownloadTimer(
+                directAppSlug
+                    .trim()
+                    .toLowerCase()
+            );
+
+        }
+
+    }
+    catch (error) {
+
+        console.error(
+            "Ошибка загрузки каталога:",
+            error
+        );
+
+
+        document
+            .getElementById(
+                "appsContainer"
+            )
+            .innerHTML =
+            `
+            <div
+                class="not-found"
+                style="display:block"
+            >
+                Не удалось загрузить каталог приложений.
+            </div>
+            `;
+
+    }
 
 }
-</script>
 
-</body>
-</html>
+
+loadApps();
