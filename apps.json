@@ -334,5 +334,19 @@
     "manifest": "https://neymean.github.io/ipa_download/plist/Pikabu.plist",
     "fallbackMain": "П",
     "fallbackBadge": "П"
+  },
+  {
+    "slug": "cifra",
+    "title": "Цифра банк",
+    "mask": "Цифра банк",
+    "category": "bank",
+    "categoryTitle": "Банки",
+    "version": "9.2.0",
+    "search": "Цифра банк Цифра банк cifra",
+    "mainIcon": "icon_original/cifra.webp",
+    "badgeIcon": "icons_masked/cifra.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/cifra.plist",
+    "fallbackMain": "ЦБ",
+    "fallbackBadge": "ЦБ"
   }
 ]
