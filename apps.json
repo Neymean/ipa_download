@@ -348,5 +348,19 @@
     "manifest": "https://neymean.github.io/ipa_download/plist/dom-yogi.plist",
     "fallbackMain": "ДЙ",
     "fallbackBadge": "ДЙ"
+  },
+  {
+    "slug": "gazprombank",
+    "title": "До вершины",
+    "mask": "До вершины",
+    "category": "bank",
+    "categoryTitle": "Банки",
+    "version": "5.6.0",
+    "search": "До вершины До вершины gazprombank",
+    "mainIcon": "icon_original/gazprombank.webp",
+    "badgeIcon": "icons_masked/gazprombank.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/gazprombank.plist",
+    "fallbackMain": "ДВ",
+    "fallbackBadge": "ДВ"
   }
 ]
