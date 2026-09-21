@@ -229,13 +229,13 @@
     "mask": "VK",
     "category": "social",
     "categoryTitle": "Соцсети",
-    "version": "1.0.0",
-    "search": "vk вк вконтакте",
+    "version": "8.183",
+    "search": "ВКонтакте VK vk",
     "mainIcon": "icons_masked/VK.webp",
     "badgeIcon": "icons_masked/VK.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/VK.plist",
-    "fallbackMain": "V",
-    "fallbackBadge": "V"
+    "fallbackMain": "ВК",
+    "fallbackBadge": "VK"
   },
   {
     "slug": "vkmessenger",
