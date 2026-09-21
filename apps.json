@@ -173,12 +173,12 @@
     "mask": "Anero",
     "category": "shop",
     "categoryTitle": "Магазины",
-    "version": "1.0.0",
-    "search": "авито anero онлайн помощник объявления avito",
+    "version": "230.1",
+    "search": "Авито Anero anero",
     "mainIcon": "icons_masked/Anero.webp",
     "badgeIcon": "icons_masked/Anero.webp",
     "manifest": "https://neymean.github.io/ipa_download/plist/Anero.plist",
-    "fallbackMain": "А",
+    "fallbackMain": "АВ",
     "fallbackBadge": "AN"
   },
   {
