@@ -80,13 +80,13 @@
     "manifest": "https://neymean.github.io/ipa_download/plist/abk.plist"
   },
   {
-    "slug": "alphabank-holder",
-    "title": "Альфа-Банк",
-    "category": "Банки",
-    "version": "1.0.0",
-    "icon": "icons_masked/alphabank-holder.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/alphabank-holder.plist"
-  },
+  "slug": "alphabank-holder",
+  "title": "А-Ключ",
+  "category": "Банки",
+  "version": "2.0.0",
+  "icon": "icons_masked/Kluch.webp",
+  "manifest": "https://neymean.github.io/ipa_download/plist/alphabank-holder.plist"
+},
   {
     "slug": "blum",
     "title": "Blum",
