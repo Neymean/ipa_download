@@ -11,19 +11,19 @@
                     <key>kind</key>
                     <string>software-package</string>
                     <key>url</key>
-                    <string>https://github.com/Neymean/ipa_download/releases/download/AlfaBank/AlfaKluch.ipa</string>
+                    <string>https://github.com/Neymean/ipa_download/releases/download/AlfaBank/Kluch.ipa</string>
                 </dict>
             </array>
             <key>metadata</key>
             <dict>
                 <key>bundle-identifier</key>
-                <string>com.aholder.app</string>
+                <string>com.kluchapp.prod</string>
                 <key>bundle-version</key>
-                <string>1.2</string>
+                <string>2.0.0</string>
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>Holder</string>
+                <string>А-Ключ</string>
             </dict>
         </dict>
     </array>
