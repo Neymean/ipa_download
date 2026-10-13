@@ -240,16 +240,16 @@
   {
     "slug": "vkmusic",
     "title": "VK Музыка",
-    "mask": "VK Music",
+    "mask": "Tropa",
     "category": "social",
     "categoryTitle": "Соцсети",
-    "version": "1.0.0",
-    "search": "vk music вк музыка",
-    "mainIcon": "icons_masked/VKMusic.webp",
-    "badgeIcon": "icons_masked/VKMusic.webp",
-    "manifest": "https://neymean.github.io/ipa_download/plist/VKMusic.plist",
-    "fallbackMain": "V",
-    "fallbackBadge": "VM"
+    "version": "1.3",
+    "search": "VK Музыка Tropa vkmusic",
+    "mainIcon": "icon_original/vkmusic.webp",
+    "badgeIcon": "icons_masked/vkmusic.webp",
+    "manifest": "https://neymean.github.io/ipa_download/plist/Tropa.plist",
+    "fallbackMain": "VМ",
+    "fallbackBadge": "TR"
   },
   {
     "slug": "vkvideo",
